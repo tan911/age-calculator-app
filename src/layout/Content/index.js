@@ -1,3 +1,3 @@
 import { Wrapper } from './input';
-
-export { Wrapper };
+import { Output } from './output';
+export { Wrapper, Output };
