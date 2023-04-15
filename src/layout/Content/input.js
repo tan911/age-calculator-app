@@ -4,10 +4,12 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  margin-bottom: 2rem;
 
   .field-group {
     display: flex;
     gap: 2rem;
+    margin-bottom: 1rem;
   }
 
   .field {
@@ -18,14 +20,17 @@ const Wrapper = styled.div`
   .label {
     display: block;
     margin-bottom: 0.3rem;
-    color: ${({ theme }) => theme.colors.smokeGrey};
+    color: ${({ theme }) => theme.colors.smokeyGrey};
+    font-family: 'Poppins-Regular';
     font-size: 0.9rem;
     font-weight: ${({ theme }) => theme.fontWeights[7]};
     letter-spacing: 0.2em;
+    text-transform: uppercase;
   }
 
   .input {
     width: 100%;
+    font-family: 'Poppins-Bold';
     padding: 0.5rem 1.5rem;
     border: 1px solid ${({ theme }) => theme.colors.offWhite};
     border-radius: ${({ theme }) => theme.radii[2]};
