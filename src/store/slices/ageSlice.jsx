@@ -37,9 +37,9 @@ const ageSlice = createSlice({
 
       const output = [
         {
-          year: YEAR_VALUE,
-          month: MONTH_VALUE,
-          day: DAY_VALUE
+          year: Math.abs(YEAR_VALUE),
+          month: Math.abs(MONTH_VALUE),
+          day: Math.abs(DAY_VALUE)
         }
       ];
       state.calcAge = output;
