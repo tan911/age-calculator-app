@@ -1,5 +1,8 @@
 import { useSelector, useDispatch } from 'react-redux';
+
+import { ReactComponent as ArrowDown } from '../assets/images/icon-arrow.svg';
 import { changeDay, changeMonth, changeYear, calculate } from '../store';
+import { Wrapper } from '../layout/Content';
 
 function AgeForm() {
   const { day, month, year } = useSelector((state) => {
@@ -29,31 +32,57 @@ function AgeForm() {
   const submitHandler = (event) => {
     event.preventDefault();
 
-    dispatch(calculate({year: year, month: month, day: day}));
+    dispatch(calculate({ year: year, month: month, day: day }));
   };
 
   return (
-    <div>
+    <Wrapper>
       <form onSubmit={submitHandler}>
-        <div>
-          <div>
-            <label htmlFor="day">day</label>
-            <input id="day" type="number" value={day || ''} onChange={dayChangeHandler} />
+        <div className="field-group">
+          <div className="field">
+            <label htmlFor="day" className="label">
+              day
+            </label>
+            <input
+              className="input"
+              id="day"
+              type="number"
+              value={day || ''}
+              onChange={dayChangeHandler}
+            />
           </div>
-          <div>
-            <label htmlFor="month">month</label>
-            <input id="month" type="number" value={month || ''} onChange={monthChangeHandler} />
+          <div className="field">
+            <label htmlFor="month" className="label">
+              month
+            </label>
+            <input
+              className="input"
+              id="month"
+              type="number"
+              value={month || ''}
+              onChange={monthChangeHandler}
+            />
           </div>
-          <div>
-            <label htmlFor="year">year</label>
-            <input id="year" type="number" value={year || ''} onChange={yearChangeHandler} />
+          <div className="field">
+            <label htmlFor="year" className="label">
+              year
+            </label>
+            <input
+              className="input"
+              id="year"
+              type="number"
+              value={year || ''}
+              onChange={yearChangeHandler}
+            />
           </div>
         </div>
-        <div>
-          <button>Submit</button>
+        <div className="btn-field">
+          <button className="button">
+            <ArrowDown />
+          </button>
         </div>
       </form>
-    </div>
+    </Wrapper>
   );
 }
 
