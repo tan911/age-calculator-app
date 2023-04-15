@@ -47,6 +47,7 @@ function AgeForm() {
               className="input"
               id="day"
               type="number"
+              placeholder='DD'
               value={day || ''}
               onChange={dayChangeHandler}
             />
@@ -59,6 +60,7 @@ function AgeForm() {
               className="input"
               id="month"
               type="number"
+              placeholder='MM'
               value={month || ''}
               onChange={monthChangeHandler}
             />
@@ -71,6 +73,7 @@ function AgeForm() {
               className="input"
               id="year"
               type="number"
+              placeholder='YY'
               value={year || ''}
               onChange={yearChangeHandler}
             />
