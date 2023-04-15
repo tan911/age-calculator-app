@@ -1,4 +1,10 @@
 import { createGlobalStyle } from 'styled-components';
+import Regular from '../assets/fonts/Poppins-Regular.ttf';
+import PoppinsItalic from '../assets/fonts/Poppins-Italic.ttf';
+import PoppinsBold from '../assets/fonts/Poppins-Bold.ttf';
+import PoppinsBoldItalic from '../assets/fonts/Poppins-BoldItalic.ttf';
+import PoppinsExtraBold from '../assets/fonts/Poppins-ExtraBold.ttf';
+import PoppinsExtraBoldItalic from '../assets/fonts/Poppins-ExtraBoldItalic.ttf';
 
 export const GlobalStyles = createGlobalStyle`
 /*
@@ -76,6 +82,48 @@ h6 {
 #__next {
   isolation: isolate;
 }
+
+@font-face {
+  font-family: Poppins-Regular;
+  src: url(${Regular}) format('truetype');
+  font-weight: normal;
+  font-style: normal;
+};
+
+@font-face {
+  font-family: Poppins-Italic;
+  src: url(${PoppinsItalic}) format('truetype');
+  font-weight: normal;
+  font-style: italic;
+};
+
+@font-face {
+  font-family: Poppins-Bold;
+  src: url(${PoppinsBold}) format('truetype');
+  font-weight: 800;
+  font-style: normal;
+};
+
+@font-face {
+  font-family: Poppins-BoldItalic;
+  src: url(${PoppinsBoldItalic}) format('truetype');
+  font-weight: 800;
+  font-style: italic;
+};
+
+@font-face {
+  font-family: Poppins-ExtraBold;
+  src: url(${PoppinsExtraBold}) format('truetype');
+  font-weight: 900;
+  font-style: normal;
+};
+
+@font-face {
+  font-family: Poppins-ExtraBoldItalic;
+  src: url(${PoppinsExtraBoldItalic}) format('truetype');
+  font-weight: 900;
+  font-style: Italic;
+};
 
 
 body {
