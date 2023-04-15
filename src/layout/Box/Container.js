@@ -6,6 +6,7 @@ const Block = styled.div`
   background-color: ${({ theme }) => theme.colors.white};
   box-shadow: 0px 0px 0.15px rgba(0, 0, 0, 0.05);
   padding: ${({ theme }) => theme.space[6]}px;
+  border-radius: 30px 30px 200px 30px;
 `;
 
 export { Block };
