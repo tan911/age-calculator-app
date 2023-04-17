@@ -18,7 +18,7 @@ function AgeCalc() {
   return (
     <Output>
       <p>
-        <span>{logYear} </span> 
+        <span>{logYear} </span>
         years
       </p>
       <p>

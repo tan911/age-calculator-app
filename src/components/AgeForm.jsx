@@ -1,8 +1,12 @@
+import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { ReactComponent as ArrowDown } from '../assets/images/icon-arrow.svg';
-import { changeDay, changeMonth, changeYear, calculate } from '../store';
+import { calculate } from '../store';
+import FormInput from './FormInput';
 import { Wrapper } from '../layout/Content';
+
+import Validate from './Validate';
 
 function AgeForm() {
   const { day, month, year } = useSelector((state) => {
@@ -14,71 +18,75 @@ function AgeForm() {
   });
   const dispatch = useDispatch();
 
-  const dayChangeHandler = (event) => {
-    const dayInput = parseInt(event.target.value) || 0;
-    dispatch(changeDay(dayInput));
-  };
+  //TODO
+  // VALIDATION
+  const [ isError, setIsError ] = useState({
+    day: '',
+    month: '',
+    year: '',
+  });
 
-  const monthChangeHandler = (event) => {
-    const monthInput = parseInt(event.target.value) || 0;
-    dispatch(changeMonth(monthInput));
-  };
+  const inputs = [
+    {
+      id: 'day',
+      name: 'day',
+      label: 'day',
+      value: day || '',
+      placeholder: 'DD',
+      errorID: 'error-message-day',
+      errorMessage: isError.day,
+      pattern: "^[0-9]{1,2}$",
+      required: true,
+      type: 'number'
+    },
+    {
+      id: 'month',
+      name: 'month',
+      value: month || '',
+      label: 'month',
+      placeholder: 'MM',
+      errorID: 'error-message-month',
+      errorMessage: isError.month,
+      required: true,
+      type: 'number'
+    },
+    {
+      id: 'year',
+      name: 'year',
+      value: year || '',
+      label: 'year',
+      placeholder: 'YY',
+      errorID: 'error-message-year',
+      errorMessage: isError.year,
+      required: true,
+      type: 'number'
+    }
+  ];
 
-  const yearChangeHandler = (event) => {
-    const yearInput = parseInt(event.target.value) || 0;
-    dispatch(changeYear(yearInput));
-  };
+  const renderedInputs = inputs.map((input) => {
+    return <FormInput key={input.id} {...input} />;
+  });
 
   const submitHandler = (event) => {
     event.preventDefault();
 
-    dispatch(calculate({ year: year, month: month, day: day }));
+    const inputs = {
+        day: day,
+        month: month,
+        year: year,
+    }
+    
+    //TODO
+    // VALIDATIONS
+    
+    dispatch(calculate({day, month, year}))
+
   };
 
   return (
     <Wrapper>
       <form onSubmit={submitHandler}>
-        <div className="field-group">
-          <div className="field">
-            <label htmlFor="day" className="label">
-              day
-            </label>
-            <input
-              className="input"
-              id="day"
-              type="number"
-              placeholder='DD'
-              value={day || ''}
-              onChange={dayChangeHandler}
-            />
-          </div>
-          <div className="field">
-            <label htmlFor="month" className="label">
-              month
-            </label>
-            <input
-              className="input"
-              id="month"
-              type="number"
-              placeholder='MM'
-              value={month || ''}
-              onChange={monthChangeHandler}
-            />
-          </div>
-          <div className="field">
-            <label htmlFor="year" className="label">
-              year
-            </label>
-            <input
-              className="input"
-              id="year"
-              type="number"
-              placeholder='YY'
-              value={year || ''}
-              onChange={yearChangeHandler}
-            />
-          </div>
-        </div>
+        <div className="field-group">{renderedInputs}</div>
         <div className="btn-field">
           <button className="button">
             <ArrowDown />
