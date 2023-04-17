@@ -6,11 +6,11 @@ const Output = styled.div`
     font-family: 'Poppins-ExtraBoldItalic';
     color: ${({ theme }) => theme.colors.offBlack};
     padding: 0;
-    line-height: ${({theme}) => theme.lineHeights[0]};
+    line-height: ${({ theme }) => theme.lineHeights[0]};
   }
 
   span {
-    color: ${({theme}) => theme.colors.purple};
+    color: ${({ theme }) => theme.colors.purple};
   }
 `;
 

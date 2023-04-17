@@ -12,48 +12,7 @@ const Wrapper = styled.div`
     margin-bottom: 1rem;
   }
 
-  .field {
-    width: 20%;
-    margin-bottom: 2rem;
-  }
-
-  .label {
-    display: block;
-    margin-bottom: 0.3rem;
-    color: ${({ theme }) => theme.colors.smokeyGrey};
-    font-family: 'Poppins-Regular';
-    font-size: 0.9rem;
-    font-weight: ${({ theme }) => theme.fontWeights[7]};
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-  }
-
-  .input {
-    width: 100%;
-    font-family: 'Poppins-Bold';
-    padding: 0.5rem 1.5rem;
-    border: 1px solid ${({ theme }) => theme.colors.offWhite};
-    border-radius: ${({ theme }) => theme.radii[2]};
-    outline: none;
-
-    &:focus {
-      outline: ${({ theme }) => theme.colors.purple} solid 0.5px;
-    }
-
-    &[type='number'] {
-      font-size: 2rem;
-      font-weight: ${({ theme }) => theme.fontWeights[7]};
-      -moz-appearance: textfield;
-    }
-
-    /* Chrome, Safari, Edge, Opera */
-    &::-webkit-outer-spin-button,
-    &::-webkit-inner-spin-button {
-      -webkit-appearance: none;
-      margin: 0;
-    }
-  }
-
+  
   .btn-field {
     position: relative;
     border-bottom: 2px solid ${({ theme }) => theme.colors.offWhite};
@@ -84,4 +43,58 @@ const Wrapper = styled.div`
   }
 `;
 
-export { Wrapper };
+const InputContainer = styled.div`
+  width: 20%;
+  margin-bottom: 2rem;
+
+  .label {
+    display: block;
+    margin-bottom: 0.3rem;
+    color: ${({ theme }) => theme.colors.smokeyGrey};
+    font-family: 'Poppins-Regular';
+    font-size: 0.9rem;
+    font-weight: ${({ theme }) => theme.fontWeights[7]};
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  .input {
+    width: 100%;
+    font-family: 'Poppins-Bold';
+    padding: 0.5rem 1.5rem;
+    border: 1px solid ${({ theme }) => theme.colors.offWhite};
+    border-radius: ${({ theme }) => theme.radii[2]};
+    outline: none;
+    margin-bottom: 0.5rem;
+
+    &:focus {
+      outline: ${({ theme }) => theme.colors.purple} solid 0.5px;
+    }
+
+    &[type='number'] {
+      font-size: 2rem;
+      font-weight: ${({ theme }) => theme.fontWeights[7]};
+      -moz-appearance: textfield;
+    }
+
+    /* Chrome, Safari, Edge, Opera */
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    &:invalid ~ span {
+      display: block;
+    }
+  }
+
+  span {
+    font-size: 0.8rem;
+    font-family: 'Poppins-Italic';
+    color: ${({theme}) => theme.colors.red};
+    display: none;
+  }
+`;
+
+export { Wrapper, InputContainer };
