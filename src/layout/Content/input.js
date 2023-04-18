@@ -12,7 +12,6 @@ const Wrapper = styled.div`
     margin-bottom: 1rem;
   }
 
-  
   .btn-field {
     position: relative;
     border-bottom: 2px solid ${({ theme }) => theme.colors.offWhite};
@@ -50,7 +49,8 @@ const InputContainer = styled.div`
   .label {
     display: block;
     margin-bottom: 0.3rem;
-    color: ${({ theme }) => theme.colors.smokeyGrey};
+    color: ${(props) =>
+      props.$error === 'error' ? props.theme.colors.red : props.theme.colors.smokeyGrey};
     font-family: 'Poppins-Regular';
     font-size: 0.9rem;
     font-weight: ${({ theme }) => theme.fontWeights[7]};
@@ -62,13 +62,16 @@ const InputContainer = styled.div`
     width: 100%;
     font-family: 'Poppins-Bold';
     padding: 0.5rem 1.5rem;
-    border: 1px solid ${({ theme }) => theme.colors.offWhite};
+    border: 1px solid
+      ${(props) =>
+        props.$error === 'error' ? props.theme.colors.red : props.theme.colors.offWhite};
     border-radius: ${({ theme }) => theme.radii[2]};
     outline: none;
     margin-bottom: 0.5rem;
 
     &:focus {
-      outline: ${({ theme }) => theme.colors.purple} solid 0.5px;
+      outline: ${(props) => (props.$error === 'error' ? 'none' : props.theme.colors.purple)} solid
+        0.5px;
     }
 
     &[type='number'] {
@@ -83,17 +86,12 @@ const InputContainer = styled.div`
       -webkit-appearance: none;
       margin: 0;
     }
-
-    &:invalid ~ span {
-      display: block;
-    }
   }
 
   span {
     font-size: 0.8rem;
     font-family: 'Poppins-Italic';
-    color: ${({theme}) => theme.colors.red};
-    display: none;
+    color: ${({ theme }) => theme.colors.red};
   }
 `;
 
