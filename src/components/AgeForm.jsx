@@ -17,14 +17,7 @@ function AgeForm() {
     };
   });
   const dispatch = useDispatch();
-
-  //TODO
-  // VALIDATION
-  const [ isError, setIsError ] = useState({
-    day: '',
-    month: '',
-    year: '',
-  });
+  const [isError, setIsError] = useState({});
 
   const inputs = [
     {
@@ -35,7 +28,7 @@ function AgeForm() {
       placeholder: 'DD',
       errorID: 'error-message-day',
       errorMessage: isError.day,
-      pattern: "^[0-9]{1,2}$",
+      pattern: '^[0-9]{1,2}$',
       required: true,
       type: 'number'
     },
@@ -71,16 +64,44 @@ function AgeForm() {
     event.preventDefault();
 
     const inputs = {
-        day: day,
-        month: month,
-        year: year,
-    }
-    
-    //TODO
-    // VALIDATIONS
-    
-    dispatch(calculate({day, month, year}))
+      day: day,
+      month: month,
+      year: year
+    };
 
+    if (isError.day === '' && isError.month === '' && isError.year === '') {
+      const now = new Date();
+
+      let DAY_VALUE, MONTH_VALUE, YEAR_VALUE;
+
+      const YEAR_INPUT = inputs.year;
+      const MONTH_INPUT = inputs.month;
+      const DAY_INPUT = inputs.day;
+
+      let YEAR = now.getFullYear();
+      let MONTH = now.getMonth() + 1;
+      let DAY = now.getDate();
+
+      if (DAY < DAY_INPUT) {
+        DAY_VALUE = DAY - DAY_INPUT + 30;
+        MONTH -= 1;
+      } else {
+        DAY_VALUE = DAY - DAY_INPUT;
+      }
+
+      if (MONTH < MONTH_INPUT) {
+        MONTH_VALUE = MONTH - MONTH_INPUT + 12;
+        YEAR -= 1;
+      } else {
+        MONTH_VALUE = MONTH - MONTH_INPUT;
+      }
+
+      YEAR_VALUE = YEAR - YEAR_INPUT;
+
+      dispatch(calculate({ year: YEAR_VALUE, month: MONTH_VALUE, day: DAY_VALUE }));
+    } else {
+      setIsError(Validate(inputs));
+    }
   };
 
   return (
