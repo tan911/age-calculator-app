@@ -65,15 +65,22 @@ function AgeForm() {
 
     const validateMonth = /\b([1-9]|1[0-2])\b/;
     const validateDays = /\b([1-9]|[12][0-9]|3[01])\b/;
-    
+    const validateYear = /^\d{4}$/;
+
     const inputs = {
       day: day,
       month: month,
       year: year
     };
 
-
-    if (isError.day === '' && isError.month === '' && isError.year === '' && validateDays.test(inputs.day) && validateMonth.test(inputs.month)) {
+    if (
+      isError.day === '' &&
+      isError.month === '' &&
+      isError.year === '' &&
+      validateDays.test(inputs.day) &&
+      validateMonth.test(inputs.month) &&
+      validateYear.test(inputs.year)
+    ) {
       const now = new Date();
 
       let DAY_VALUE, MONTH_VALUE, YEAR_VALUE;
@@ -107,7 +114,7 @@ function AgeForm() {
       setIsError(Validate(inputs));
     }
 
-    console.log(isError)
+    console.log(isError);
   };
 
   return (
@@ -115,7 +122,7 @@ function AgeForm() {
       <form onSubmit={submitHandler}>
         <div className="field-group">{renderedInputs}</div>
         <div className="btn-field">
-          <button type='submit' className="button">
+          <button type="submit" className="button">
             <ArrowDown />
           </button>
         </div>
