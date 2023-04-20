@@ -7,6 +7,10 @@ const Block = styled.div`
   box-shadow: 0px 0px 0.15px rgba(0, 0, 0, 0.05);
   padding: ${({ theme }) => theme.space[6]}px;
   border-radius: 30px 30px 200px 30px;
+
+  @media only screen and ${({theme}) => theme.device.tablet} {
+    max-width: 43.75rem;
+  }
 `;
 
 export { Block };
