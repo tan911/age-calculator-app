@@ -75,7 +75,7 @@ const InputContainer = styled.div`
     }
 
     &[type='number'] {
-      font-size: 2rem;
+      font-size: clamp(1.13rem, calc(0.60rem + 2.64vw), 2.00rem);
       font-weight: ${({ theme }) => theme.fontWeights[7]};
       -moz-appearance: textfield;
     }
