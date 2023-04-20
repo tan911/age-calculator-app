@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const Output = styled.div`
   p {
-    font-size: 7rem;
+    font-size: clamp(1.13rem, calc(-2.42rem + 17.74vw), 7.00rem);
     font-family: 'Poppins-ExtraBoldItalic';
     color: ${({ theme }) => theme.colors.offBlack};
     padding: 0;
