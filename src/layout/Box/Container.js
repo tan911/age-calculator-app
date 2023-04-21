@@ -10,6 +10,14 @@ const Block = styled.div`
 
   @media only screen and ${({theme}) => theme.device.tablet} {
     max-width: 43.75rem;
+    width: 90%;
+    padding: ${({theme}) => theme.space[6]}px ${({theme}) => theme.space[5]}px;
+    margin: 0 auto;
+  }
+
+  @media only screen and ${({theme}) => theme.device.mobileL} {
+    max-width: 46.875rem;
+    padding: ${({theme}) => theme.space[6]}px ${({theme}) => theme.space[4]}px;
   }
 `;
 
