@@ -7,6 +7,11 @@ const Output = styled.div`
     color: ${({ theme }) => theme.colors.offBlack};
     padding: 0;
     line-height: ${({ theme }) => theme.lineHeights[0]};
+
+
+    @media only screen and ${({theme}) => theme.device.tablet} {
+      font-size: clamp(1.13rem, calc(-3.07rem + 20.98vw), 7.00rem);
+    }
   }
 
   span {
