@@ -8,16 +8,20 @@ const Block = styled.div`
   padding: ${({ theme }) => theme.space[6]}px;
   border-radius: 30px 30px 200px 30px;
 
-  @media only screen and ${({theme}) => theme.device.tablet} {
+  @media only screen and ${({ theme }) => theme.device.tablet} {
     max-width: 43.75rem;
     width: 90%;
-    padding: ${({theme}) => theme.space[6]}px ${({theme}) => theme.space[5]}px;
+    padding: ${({ theme }) => theme.space[6]}px ${({ theme }) => theme.space[5]}px;
     margin: 0 auto;
   }
 
-  @media only screen and ${({theme}) => theme.device.mobileL} {
-    max-width: 46.875rem;
-    padding: ${({theme}) => theme.space[6]}px ${({theme}) => theme.space[4]}px;
+  @media only screen and ${({ theme }) => theme.device.mobileL} {
+    padding: ${({ theme }) => theme.space[6]}px ${({ theme }) => theme.space[4]}px;
+    border-radius: 30px 30px 150px 30px;
+  }
+
+  @media only screen and ${({ theme }) => theme.device.mobileM} {
+    border-radius: 30px 30px 100px 30px;
   }
 `;
 
