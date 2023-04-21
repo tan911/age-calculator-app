@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const Block = styled.div`
+const Block = styled.main`
   max-width: 53.125rem;
   width: 100%;
   background-color: ${({ theme }) => theme.colors.white};
