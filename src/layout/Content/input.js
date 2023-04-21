@@ -6,10 +6,22 @@ const Wrapper = styled.div`
   gap: 1rem;
   margin-bottom: 2rem;
 
+  @media only screen and ${({theme}) => theme.device.tablet} {
+    margin-bottom: 4rem;
+  }
+
   .field-group {
     display: flex;
     gap: 2rem;
     margin-bottom: 1rem;
+
+    @media only screen and ${({theme}) => theme.device.tablet} {
+      margin-bottom: 3rem;
+    }
+
+    @media only screen and ${({theme}) => theme.device.mobileL} {
+      gap: 1rem;
+    }
   }
 
   .btn-field {
@@ -39,12 +51,25 @@ const Wrapper = styled.div`
     &:hover {
       background-color: ${({ theme }) => theme.colors.offBlack};
     }
+
+    @media only screen and ${({theme}) => theme.device.tablet} {
+        width: 80px;
+        height: 80px;
+        right: 0;
+        left: 50%;
+        bottom: 0;
+        top: 0;
+    }
   }
 `;
 
 const InputContainer = styled.div`
   width: 20%;
   margin-bottom: 2rem;
+
+  @media only screen and ${({theme}) => theme.device.tablet} {
+    width: 100%;
+  }
 
   .label {
     display: block;
@@ -69,6 +94,14 @@ const InputContainer = styled.div`
     outline: none;
     margin-bottom: 0.5rem;
 
+    @media only screen and ${({theme}) => theme.device.tablet} {
+      padding: 0.5rem 1rem;
+    }
+
+    @media only screen and ${({theme}) => theme.device.mobileL} {
+      padding: 0.5rem 0.8rem;
+    }
+
     &:focus {
       outline: ${(props) => (props.$error === 'error' ? 'none' : props.theme.colors.purple)} solid
         0.5px;
@@ -92,6 +125,20 @@ const InputContainer = styled.div`
     font-size: 0.8rem;
     font-family: 'Poppins-Italic';
     color: ${({ theme }) => theme.colors.red};
+
+    @media only screen and ${({theme}) => theme.device.tablet} {
+      padding: 0.5rem 1rem;
+      font-size: clamp(0.80rem, calc(1.36rem + -1.16vw), 1.13rem);
+      padding: 0;
+    }
+
+    @media only screen and ${({theme}) => theme.device.mobileL} {
+      font-size:  clamp(0.50rem, calc(3.03rem + -9.52vw), 1.13rem);
+    }
+
+    @media only screen and ${({theme}) => theme.device.mobileS} {
+      font-size: clamp(0.30rem, calc(7.96rem + -37.71vw), 1.13rem);
+    }
   }
 `;
 
