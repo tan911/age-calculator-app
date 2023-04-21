@@ -123,7 +123,7 @@ function AgeForm() {
         <div className="field-group">{renderedInputs}</div>
         <div className="btn-field">
           <button type="submit" className="button">
-            <ArrowDown />
+            <ArrowDown className="arrow-down" aria-hidden="true" />
           </button>
         </div>
       </form>
