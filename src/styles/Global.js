@@ -127,9 +127,11 @@ h6 {
 
 
 body {
+  min-height: 100vh;
   background-color: ${({ theme }) => theme.colors.offWhite};
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow-x: hidden;
 }
 `;
