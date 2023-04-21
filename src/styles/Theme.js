@@ -11,7 +11,7 @@ const size = {
   laptop: '64em', // 1024px
   laptopL: '90em', // 1440px
   desktop: '160em' // 2560px
-}
+};
 
 const theme = {
   fontSizes,
@@ -37,7 +37,7 @@ const theme = {
     laptopL: `(max-width: ${size.laptopL})`,
     desktop: `(min-width: ${size.desktop})`,
     desktopL: `(min-width: ${size.desktop})`
-  },
+  }
 };
 
 export default theme;
