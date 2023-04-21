@@ -6,7 +6,7 @@ const Wrapper = styled.div`
   gap: 1rem;
   margin-bottom: 2rem;
 
-  @media only screen and ${({theme}) => theme.device.tablet} {
+  @media only screen and ${({ theme }) => theme.device.tablet} {
     margin-bottom: 4rem;
   }
 
@@ -15,12 +15,13 @@ const Wrapper = styled.div`
     gap: 2rem;
     margin-bottom: 1rem;
 
-    @media only screen and ${({theme}) => theme.device.tablet} {
+    @media only screen and ${({ theme }) => theme.device.tablet} {
       margin-bottom: 3rem;
     }
 
-    @media only screen and ${({theme}) => theme.device.mobileL} {
+    @media only screen and ${({ theme }) => theme.device.mobileL} {
       gap: 1rem;
+      margin-bottom: 1.5rem;
     }
   }
 
@@ -52,13 +53,23 @@ const Wrapper = styled.div`
       background-color: ${({ theme }) => theme.colors.offBlack};
     }
 
-    @media only screen and ${({theme}) => theme.device.tablet} {
-        width: 80px;
-        height: 80px;
-        right: 0;
-        left: 50%;
-        bottom: 0;
-        top: 0;
+    @media only screen and ${({ theme }) => theme.device.tablet} {
+      width: 80px;
+      height: 80px;
+      right: 0;
+      left: 50%;
+      bottom: 0;
+      top: 0;
+    }
+
+    @media only screen and ${({ theme }) => theme.device.mobileL} {
+      width: 60px;
+      height: 60px;
+
+      .arrow-down {
+        width: 30px;
+        height: 30px;
+      }
     }
   }
 `;
@@ -67,7 +78,7 @@ const InputContainer = styled.div`
   width: 20%;
   margin-bottom: 2rem;
 
-  @media only screen and ${({theme}) => theme.device.tablet} {
+  @media only screen and ${({ theme }) => theme.device.tablet} {
     width: 100%;
   }
 
@@ -94,11 +105,11 @@ const InputContainer = styled.div`
     outline: none;
     margin-bottom: 0.5rem;
 
-    @media only screen and ${({theme}) => theme.device.tablet} {
+    @media only screen and ${({ theme }) => theme.device.tablet} {
       padding: 0.5rem 1rem;
     }
 
-    @media only screen and ${({theme}) => theme.device.mobileL} {
+    @media only screen and ${({ theme }) => theme.device.mobileL} {
       padding: 0.5rem 0.8rem;
     }
 
@@ -108,7 +119,7 @@ const InputContainer = styled.div`
     }
 
     &[type='number'] {
-      font-size: clamp(1.13rem, calc(0.60rem + 2.64vw), 2.00rem);
+      font-size: clamp(1.13rem, calc(0.6rem + 2.64vw), 2rem);
       font-weight: ${({ theme }) => theme.fontWeights[7]};
       -moz-appearance: textfield;
     }
@@ -126,18 +137,18 @@ const InputContainer = styled.div`
     font-family: 'Poppins-Italic';
     color: ${({ theme }) => theme.colors.red};
 
-    @media only screen and ${({theme}) => theme.device.tablet} {
+    @media only screen and ${({ theme }) => theme.device.tablet} {
       padding: 0.5rem 1rem;
-      font-size: clamp(0.80rem, calc(1.36rem + -1.16vw), 1.13rem);
+      font-size: clamp(0.8rem, calc(1.36rem + -1.16vw), 1.13rem);
       padding: 0;
     }
 
-    @media only screen and ${({theme}) => theme.device.mobileL} {
-      font-size:  clamp(0.50rem, calc(3.03rem + -9.52vw), 1.13rem);
+    @media only screen and ${({ theme }) => theme.device.mobileL} {
+      font-size: clamp(0.57rem, calc(1.16rem + -1.12vw), 0.94rem);
     }
 
-    @media only screen and ${({theme}) => theme.device.mobileS} {
-      font-size: clamp(0.30rem, calc(7.96rem + -37.71vw), 1.13rem);
+    @media only screen and ${({ theme }) => theme.device.mobileS} {
+      font-size: clamp(0.4rem, calc(1.01rem + -1.15vw), 0.78rem);
     }
   }
 `;
