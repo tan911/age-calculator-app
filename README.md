@@ -7,12 +7,7 @@ This is a solution to the [Age calculator app challenge on Frontend Mentor](http
 - [Overview](#overview)
   - [The challenge](#the-challenge)
   - [Screenshot](#screenshot)
-  - [Links](#links)
-- [My process](#my-process)
   - [Built with](#built-with)
-  - [What I learned](#what-i-learned)
-  - [Useful resources](#useful-resources)
-- [Author](#author)
 
 
 
@@ -36,14 +31,7 @@ Users should be able to:
 ### Screenshot
 
 ![](./screenshot/desktop-ss.png)
-
-
-### Links
-
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
-
-## My process
+![](./screenshot/mobile-ss.png)
 
 ### Built with
 
@@ -55,20 +43,5 @@ Users should be able to:
 - [Styled Components](https://styled-components.com/) - For styles
 
 
-### What I learned
 
-- File strucure with styled components
-- Multiple slices with redux
-- Local fonts with styled components
-
-
-### Useful resources
-
-- [Calculation of age](https://www.codehim.com/date-time/javascript-calculate-age-in-years-months-days/) - The site uses vanilla js to calculate the age, it is better to know first the fundamental of js before copying each line of the code. 
-- [Age calculator explain](https://www.calculatorsoup.com/calculators/time/age-calculator.php) - This will explain the further information on calculating an age. 
-
-
-## Author
-
-- Frontend Mentor - [@tan911](https://www.frontendmentor.io/profile/tan911)
 
