@@ -35,7 +35,7 @@ function FormInput(props) {
         type={type}
         name={name}
         value={value}
-        aria-describedby={errorID}
+        aria-describedby={errorMessage && errorID}
         placeholder={placeholder}
         onChange={(e) => inputChangeHandler(e.target.value, id)}
       />
