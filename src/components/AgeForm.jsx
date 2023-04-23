@@ -6,7 +6,9 @@ import { calculate } from '../store';
 import FormInput from './FormInput';
 import { Wrapper } from '../layout/Content';
 
-import Validate from './Validate';
+import Inputs from './inputs';
+import Calculate from './calculateAge';
+import Validate from './validate';
 
 function AgeForm() {
   const { day, month, year } = useSelector((state) => {
@@ -17,46 +19,11 @@ function AgeForm() {
     };
   });
   const dispatch = useDispatch();
-  const [isError, setIsError] = useState({});
+  const [validationErrors, setValidationErrors] = useState({});
 
-  const inputs = [
-    {
-      id: 'day',
-      name: 'day',
-      label: 'day',
-      value: day || '',
-      placeholder: 'DD',
-      errorID: 'error-message-day',
-      errorMessage: isError.day,
-      pattern: '^[0-9]{1,2}$',
-      required: true,
-      type: 'number'
-    },
-    {
-      id: 'month',
-      name: 'month',
-      value: month || '',
-      label: 'month',
-      placeholder: 'MM',
-      errorID: 'error-message-month',
-      errorMessage: isError.month,
-      required: true,
-      type: 'number'
-    },
-    {
-      id: 'year',
-      name: 'year',
-      value: year || '',
-      label: 'year',
-      placeholder: 'YY',
-      errorID: 'error-message-year',
-      errorMessage: isError.year,
-      required: true,
-      type: 'number'
-    }
-  ];
+  const INPUTS = Inputs(validationErrors, day, month, year);
 
-  const renderedInputs = inputs.map((input) => {
+  const renderedInputs = INPUTS.map((input) => {
     return <FormInput key={input.id} {...input} />;
   });
 
@@ -74,47 +41,21 @@ function AgeForm() {
     };
 
     if (
-      isError.day === '' &&
-      isError.month === '' &&
-      isError.year === '' &&
+      validationErrors.day === '' &&
+      validationErrors.month === '' &&
+      validationErrors.year === '' &&
       validateDays.test(inputs.day) &&
       validateMonth.test(inputs.month) &&
       validateYear.test(inputs.year)
     ) {
-      const now = new Date();
+      const { _year_calculated, _month_calculated, _day_calculated } = Calculate(inputs);
 
-      let DAY_VALUE, MONTH_VALUE, YEAR_VALUE;
-
-      const YEAR_INPUT = inputs.year;
-      const MONTH_INPUT = inputs.month;
-      const DAY_INPUT = inputs.day;
-
-      let YEAR = now.getFullYear();
-      let MONTH = now.getMonth() + 1;
-      let DAY = now.getDate();
-
-      if (DAY < DAY_INPUT) {
-        DAY_VALUE = DAY - DAY_INPUT + 30;
-        MONTH -= 1;
-      } else {
-        DAY_VALUE = DAY - DAY_INPUT;
-      }
-
-      if (MONTH < MONTH_INPUT) {
-        MONTH_VALUE = MONTH - MONTH_INPUT + 12;
-        YEAR -= 1;
-      } else {
-        MONTH_VALUE = MONTH - MONTH_INPUT;
-      }
-
-      YEAR_VALUE = YEAR - YEAR_INPUT;
-
-      dispatch(calculate({ year: YEAR_VALUE, month: MONTH_VALUE, day: DAY_VALUE }));
+      dispatch(
+        calculate({ year: _year_calculated, month: _month_calculated, day: _day_calculated })
+      );
     } else {
-      setIsError(Validate(inputs));
+      setValidationErrors(Validate(inputs));
     }
-
-    console.log(isError);
   };
 
   return (
